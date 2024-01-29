@@ -41,6 +41,9 @@ dependencies:
   '@angular/ssr':
     specifier: ^17.0.1
     version: 17.1.1(@angular/common@17.1.1)(@angular/core@17.1.1)
+  '@stripe/stripe-js':
+    specifier: ^1.35.0
+    version: 1.54.2
   express:
     specifier: ^4.18.2
     version: 4.18.2
@@ -3027,6 +3030,10 @@ packages:
       '@sigstore/core': 0.2.0
       '@sigstore/protobuf-specs': 0.2.1
     dev: true
+
+  /@stripe/stripe-js@1.54.2:
+    resolution: {integrity: sha512-R1PwtDvUfs99cAjfuQ/WpwJ3c92+DAMy9xGApjqlWQMj0FKQabUAys2swfTRNzuYAYJh7NqK2dzcYVNkKLEKUg==}
+    dev: false
 
   /@tufjs/canonical-json@2.0.0:
     resolution: {integrity: sha512-yVtV8zsdo8qFHe+/3kw81dSLyF7D576A5cCFCi4X7B39tWT7SekaEFUnvnWJHz+9qO7qJTah1JbrDjWKqFtdWA==}

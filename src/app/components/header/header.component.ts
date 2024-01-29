@@ -1,6 +1,6 @@
 import {Component, Input} from "@angular/core";
 import {Cart, CartItem} from "../../models/cart.model";
-// import {CartService} from "src/app/services/cart.service";
+import {CartService} from "../../services/cart.service";
 
 @Component({
   selector: "app-header",
@@ -69,13 +69,13 @@ export class HeaderComponent {
       .reduce((prev, curent) => prev + curent, 0);
   }
 
-  // constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService) {}
 
-  // getTotal(items: CartItem[]): number {
-  //   return this.cartService.getTotal(items);
-  // }
+  getTotal(items: CartItem[]): number {
+    return this.cartService.getTotal(items);
+  }
 
-  // onClearCart(): void {
-  //   this.cartService.clearCart();
-  // }
+  onClearCart(): void {
+    this.cartService.clearCart();
+  }
 }

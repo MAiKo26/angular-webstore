@@ -6,7 +6,7 @@ import {
   Output,
 } from "@angular/core";
 import {Subscription} from "rxjs";
-// import { StoreService } from 'src/app/services/store.service';
+import {StoreService} from "../../../../services/store.service";
 
 @Component({
   selector: "app-filters",
@@ -29,14 +29,14 @@ export class FiltersComponent implements OnInit, OnDestroy {
   categories: string[] | undefined;
   categoriesSubscription: Subscription | undefined;
 
-  // constructor(private storeService: StoreService) {}
+  constructor(private storeService: StoreService) {}
 
   ngOnInit(): void {
-    // this.categoriesSubscription = this.storeService
-    //   .getAllCategories()
-    //   .subscribe((response: Array<string>) => {
-    //     this.categories = response;
-    //   });
+    this.categoriesSubscription = this.storeService
+      .getAllCategories()
+      .subscribe((response: Array<string>) => {
+        this.categories = response;
+      });
   }
 
   onShowCategory(category: string): void {

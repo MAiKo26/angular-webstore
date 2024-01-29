@@ -1,8 +1,8 @@
 import {HttpClient} from "@angular/common/http";
 import {Component, OnDestroy, OnInit} from "@angular/core";
 import {Cart, CartItem} from "../../models/cart.model";
-// import { CartService } from 'src/app/services/cart.service';
-// import { loadStripe } from '@stripe/stripe-js';
+import {CartService} from "../../services/cart.service";
+import {loadStripe} from "@stripe/stripe-js";
 import {Subscription} from "rxjs";
 
 @Component({
@@ -125,47 +125,47 @@ export class CartComponent implements OnInit, OnDestroy {
   dataSource: CartItem[] = [];
   cartSubscription: Subscription | undefined;
 
-  // constructor(private cartService: CartService, private http: HttpClient) {}
+  constructor(private cartService: CartService, private http: HttpClient) {}
 
   ngOnInit(): void {
-    // this.cartSubscription = this.cartService.cart.subscribe((_cart: Cart) => {
-    //   this.cart = _cart;
-    //   this.dataSource = _cart.items;
-    // });
+    this.cartSubscription = this.cartService.cart.subscribe((_cart: Cart) => {
+      this.cart = _cart;
+      this.dataSource = _cart.items;
+    });
   }
 
   getTotal(items: CartItem[]): number {
-    // return this.cartService.getTotal(items);
-    return 0;
+    return this.cartService.getTotal(items);
+    // return 0;
   }
 
   onAddQuantity(item: CartItem): void {
-    // this.cartService.addToCart(item);
+    this.cartService.addToCart(item);
   }
 
   onRemoveFromCart(item: CartItem): void {
-    // this.cartService.removeFromCart(item);
+    this.cartService.removeFromCart(item);
   }
 
   onRemoveQuantity(item: CartItem): void {
-    // this.cartService.removeQuantity(item);
+    this.cartService.removeQuantity(item);
   }
 
   onClearCart(): void {
-    // this.cartService.clearCart();
+    this.cartService.clearCart();
   }
 
   onCheckout(): void {
-    // this.http
-    //   .post("http://localhost:4242/checkout", {
-    //     items: this.cart.items,
-    //   })
-    //   .subscribe(async (res: any) => {
-    //     let stripe = await loadStripe("your token");
-    //     stripe?.redirectToCheckout({
-    //       sessionId: res.id,
-    //     });
-    //   });
+    this.http
+      .post("http://localhost:4242/checkout", {
+        items: this.cart.items,
+      })
+      .subscribe(async (res: any) => {
+        let stripe = await loadStripe("your token");
+        stripe?.redirectToCheckout({
+          sessionId: res.id,
+        });
+      });
   }
 
   ngOnDestroy() {
