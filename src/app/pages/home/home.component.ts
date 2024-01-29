@@ -11,7 +11,7 @@ const ROWS_HEIGHT: {[id: number]: number} = {1: 400, 3: 335, 4: 350};
   template: `
     <mat-drawer-container
       [autosize]="true"
-      class="min-h-full max-w-7xl mx-auto border-x"
+      class="min-h-screen max-w-7xl mx-auto border-x"
     >
       <mat-drawer mode="side" opened class="p-6"> </mat-drawer>
       <mat-drawer-content class="p-6">

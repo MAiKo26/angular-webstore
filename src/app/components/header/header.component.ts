@@ -3,7 +3,7 @@ import {Cart, CartItem} from "../../models/cart.model";
 // import {CartService} from "src/app/services/cart.service";
 
 @Component({
-  selector: "Header",
+  selector: "app-header",
   template: `
     <mat-toolbar class="justify-between max-w-7xl mx-auto border-x">
       <a routerLink="home">Code with Sloba store</a>
