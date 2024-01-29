@@ -8,7 +8,7 @@ import {Product} from "../../../../models/product.model";
       <div [ngClass]="{flex: fullWidthMode}">
         <img
           class="mb-1 mx-auto"
-          [ngClass]="{'h-[200px]': !fullWidthMode, 'h-[360px]': fullWidthMode}"
+          class="h-[200px] w-[360px]"
           [src]="product.image"
         />
         <div

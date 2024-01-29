@@ -29,13 +29,13 @@ const ROWS_HEIGHT: {[id: number]: number} = {1: 400, 3: 335, 4: 350};
           [rowHeight]="rowHeight"
         >
           <mat-grid-tile *ngFor="let product of products">
-            <div
+            <app-product-box
               (addToCart)="onAddToCart($event)"
               app-product-box
               [product]="product"
               [fullWidthMode]="cols === 1"
               class="w-full"
-            ></div>
+            ></app-product-box>
           </mat-grid-tile>
         </mat-grid-list>
       </mat-drawer-content>
