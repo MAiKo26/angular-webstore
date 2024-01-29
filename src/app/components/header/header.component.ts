@@ -1,6 +1,6 @@
 import {Component, Input} from "@angular/core";
-import {Cart, CartItem} from "src/app/models/cart.model";
-import {CartService} from "src/app/services/cart.service";
+import {Cart, CartItem} from "../../models/cart.model";
+// import {CartService} from "src/app/services/cart.service";
 
 @Component({
   selector: "Header",
@@ -34,15 +34,10 @@ import {CartService} from "src/app/services/cart.service";
           </div>
           <div class="flex justify-between py-3 font-light">
             Total:
-            <span class="font-bold not-italic">{{
-              getTotal(cart.items) | currency
-            }}</span>
+            <span class="font-bold not-italic">{{ 120 | currency }}</span>
           </div>
           <div class="pt-3 flex justify-between">
-            <button
-              (click)="onClearCart()"
-              class="bg-rose-600 text-white rounded-full w-9 h-9"
-            >
+            <button class="bg-rose-600 text-white rounded-full w-9 h-9">
               <mat-icon>remove_shopping_cart</mat-icon>
             </button>
             <button
@@ -74,13 +69,13 @@ export class HeaderComponent {
       .reduce((prev, curent) => prev + curent, 0);
   }
 
-  constructor(private cartService: CartService) {}
+  // constructor(private cartService: CartService) {}
 
-  getTotal(items: CartItem[]): number {
-    return this.cartService.getTotal(items);
-  }
+  // getTotal(items: CartItem[]): number {
+  //   return this.cartService.getTotal(items);
+  // }
 
-  onClearCart(): void {
-    this.cartService.clearCart();
-  }
+  // onClearCart(): void {
+  //   this.cartService.clearCart();
+  // }
 }
